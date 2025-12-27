@@ -1,5 +1,12 @@
 # A Language-Agnostic Hierarchical LoRA-MoE Architecture for CTC-based Multilingual ASR
 
+All pretrained checkpoints used in this repository are hosted on Hugging Face:
+
+https://huggingface.co/yuangzheng/HLoRA/tree/main
+
+The repository only contains training and inference code.
+
+The source code will be made publicly available after the acceptance of this paper.
 
 # Data
 for each dataset, we provide utt_id
