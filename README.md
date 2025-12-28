@@ -9,19 +9,16 @@ The repository only contains training and inference code.
 The source code will be made publicly available after the acceptance of this paper.
 
 # Data
-for each dataset, we provide utt_id
+For each dataset, we provide `utt_id`.
 
-data/msr_86k/. 1500 hours
-
-data/mlc_slm/english_indian 100 hours
-
-data/mlc_slm/french 100 hours
-
-data/mlc_slm/german 100 hours
-
-data/mlc_slm/japanese 100 hours
-
-data/mlc_slm/korean 100 hours
+| Dataset | Language | Path | Hours |
+|--------|----------|------|-------|
+| MSR-86K | All (11) | `data/msr_86k/` | 1500 |
+| MLC-SLM | English (Indian) | `data/mlc_slm/english_indian` | 100 |
+| MLC-SLM | French | `data/mlc_slm/french` | 100 |
+| MLC-SLM | German | `data/mlc_slm/german` | 100 |
+| MLC-SLM | Japanese | `data/mlc_slm/japanese` | 100 |
+| MLC-SLM | Korean | `data/mlc_slm/korean` | 100 |
 
 # Result
 
