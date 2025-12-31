@@ -4,6 +4,14 @@ This repository contains the official implementation of the following publicatio
 
 - A Language-Agnostic Hierarchical LoRA-MoE Architecture for CTC-based Multilingual ASR (available on [arxiv]())
 
+# Introduction
+
+## Two-stage inferece
+
+Language agnostic decoding is achieved through a two-stage inference procedure. In the first stage, the base mHuBERT-CTC model without LoRA adaptation is used to predict an LID token via CTC decoding, and the language with the highest posterior probability is selected. In the second stage, the corresponding language-specific LoRA module is activated to perform ASR decoding. Although this two-stage approach enables language-agnostic decoding without prior LID information, it introduces additional inference latency and is susceptible to error propagation from language prediction to ASR. These limitations motivate a more efficient single-pass and end-to-end solution.
+
+![mHuBERT-CTC-LIDLoRA](mHuBERT-CTC-LIDLoRA.png)
+
 # Checkpoints
 
 We've released checkpoints:
