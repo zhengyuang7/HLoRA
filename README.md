@@ -10,7 +10,13 @@ This repository contains the official implementation of the following publicatio
 
 Language agnostic decoding is achieved through a two-stage inference procedure. In the first stage, the base mHuBERT-CTC model without LoRA adaptation is used to predict an LID token via CTC decoding, and the language with the highest posterior probability is selected. In the second stage, the corresponding language-specific LoRA module is activated to perform ASR decoding. Although this two-stage approach enables language-agnostic decoding without prior LID information, it introduces additional inference latency and is susceptible to error propagation from language prediction to ASR. These limitations motivate a more efficient single-pass and end-to-end solution.
 
-![mHuBERT-CTC-LIDLoRA](mHuBERT-CTC-LIDLoRA.png)
+<img src="mHuBERT-CTC-LIDLoRA.png" width=300>
+
+
+
+Fig. 2 illustrates the proposed mHuBERT-CTC-HLoRA architecture. An unknown-language speech is processed by a frozen CNN front-end and an N-layer Transformer encoder from the pretrained mHuBERT-147 model. To balance cross-lingual sharing and language-specific modeling, the encoder is divided into two parts: the lower k layers incorporate a shared LoRA optimized across all languages to capture language-invariant acoustic representations, while the upper N-k layers employ language-specific LoRA modules to model discriminative language-dependent characteristics. The intermediate representation after the k-th layer is fed into a lightweight LID classifier, whose posterior dynamically activates the corresponding language-specific LoRA in the upper layers and the CTC head, thereby tightly coupling LID and ASR within a unified framework and enabling single-pass, language-agnostic decoding.
+
+<img src="mHuBERT-CTC-HLoRA.png" width=600>
 
 # Checkpoints
 
