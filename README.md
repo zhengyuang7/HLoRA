@@ -1,4 +1,4 @@
-# A Language-Agnostic Hierarchical LoRA-MoE Architecture for CTC-based Multilingual ASR
+# HLoRA
 
 This repository contains the official implementation of the following publications:
 
