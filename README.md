@@ -1,12 +1,12 @@
 # A Language-Agnostic Hierarchical LoRA-MoE Architecture for CTC-based Multilingual ASR
 
-All pretrained checkpoints used in this repository are hosted on Hugging Face:
+This repository contains the best mHuBERT-CTC-HLoRA model.
 
 https://huggingface.co/yuangzheng/HLoRA/tree/main
 
-The repository only contains training and inference code.
+model details: k=9, HuBERT base architecture (95M parameters) and LoRA (7M parameters), 5 languages.
 
-The source code will be made publicly available after the acceptance of this paper.
+The repository only contains source code. The source code will be made publicly available after the acceptance of this paper.
 
 # Data
 For each dataset, we provide `utt_id`.
