@@ -33,7 +33,7 @@ model details: k=9, HuBERT base architecture (95M parameters), LoRA and LID (7M 
 - The training code will be made publicly available after the acceptance of this paper. 
   `./espnet`
 
-- To experiment, follow the [ESPnet's steps](https://espnet.github.io/espnet/espnet2_tutorial.html). You can implement HLoRA method by simply replacing run.sh from the command line with our run.sh. For example:
+- To experiment, follow the [ESPnet's steps](https://espnet.github.io/espnet/espnet2_tutorial.html). You can implement HLoRA method by simply conducting run.sh from the command line. For example:
   `./run.sh --stage 10 --stop_stage 13`
 
 # Data
@@ -42,12 +42,12 @@ For each dataset, we provide `utt_id`.
 
 | Dataset | Language | Path | Hours |
 |--------|----------|------|-------|
-| MSR-86K | All (11) | `data/msr_86k/` | 1500 |
-| MLC-SLM | English (Indian) | `data/mlc_slm/english_indian` | 100 |
-| MLC-SLM | French | `data/mlc_slm/french` | 100 |
-| MLC-SLM | German | `data/mlc_slm/german` | 100 |
-| MLC-SLM | Japanese | `data/mlc_slm/japanese` | 100 |
-| MLC-SLM | Korean | `data/mlc_slm/korean` | 100 |
+| MSR-86K | All (11) | `egs2/mlc_slm/asr1/data/msr_86k/` | 1500 |
+| MLC-SLM | English (Indian) | `egs2/mlc_slm/asr1/data/mlc_slm/english_indian` | 100 |
+| MLC-SLM | French | `egs2/mlc_slm/asr1/data/mlc_slm/french` | 100 |
+| MLC-SLM | German | `egs2/mlc_slm/asr1/data/mlc_slm/german` | 100 |
+| MLC-SLM | Japanese | `egs2/mlc_slm/asr1/data/mlc_slm/japanese` | 100 |
+| MLC-SLM | Korean | `egs2/mlc_slm/asr1/data/mlc_slm/korean` | 100 |
 
 # Result
 
