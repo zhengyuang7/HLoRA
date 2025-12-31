@@ -8,13 +8,13 @@ This repository contains the official implementation of the following publicatio
 
 ### Two-stage inferece
 
-Language agnostic decoding is achieved through a two-stage inference procedure. In the first stage, the base mHuBERT-CTC model without LoRA adaptation is used to predict an LID token via CTC decoding, and the language with the highest posterior probability is selected. In the second stage, the corresponding language-specific LoRA module is activated to perform ASR decoding. Although this two-stage approach enables language-agnostic decoding without prior LID information, it introduces additional inference latency and is susceptible to error propagation from language prediction to ASR. These limitations motivate a more efficient single-pass and end-to-end solution.
+This two-stage language-agnostic decoding first predicts the language using a LoRA-free mHuBERT-CTC model and then activates the corresponding language-specific LoRA for ASR decoding. While effective without prior LID information, it incurs extra latency and suffers from error propagation, motivating a single-pass end-to-end solution.
 
 <img src="mHuBERT-CTC-LIDLoRA.png" width=400>
 
 ### Proposed HLoRA architeture
 
-Fig. 2 illustrates the proposed mHuBERT-CTC-HLoRA architecture. An unknown-language speech is processed by a frozen CNN front-end and an N-layer Transformer encoder from the pretrained mHuBERT-147 model. To balance cross-lingual sharing and language-specific modeling, the encoder is divided into two parts: the lower k layers incorporate a shared LoRA optimized across all languages to capture language-invariant acoustic representations, while the upper N-k layers employ language-specific LoRA modules to model discriminative language-dependent characteristics. The intermediate representation after the k-th layer is fed into a lightweight LID classifier, whose posterior dynamically activates the corresponding language-specific LoRA in the upper layers and the CTC head, thereby tightly coupling LID and ASR within a unified framework and enabling single-pass, language-agnostic decoding.
+Figure 2 illustrates the mHuBERT-CTC-HLoRA architecture, where unknown-language speech is processed by a frozen mHuBERT encoder with shared LoRA in the lower layers and language-specific LoRA in the upper layers. A lightweight LID classifier dynamically activates the corresponding language-specific LoRA and CTC head, enabling tightly coupled LID–ASR and single-pass language-agnostic decoding.
 
 <img src="mHuBERT-CTC-HLoRA.png" width=800>
 
@@ -22,9 +22,8 @@ Fig. 2 illustrates the proposed mHuBERT-CTC-HLoRA architecture. An unknown-langu
 
 We've released checkpoints:
 
-- the mHuBERT-CTC-HLoRA model (with best k): [HuggingFace](https://huggingface.co/yuangzheng/HLoRA/tree/main)
+- the mHuBERT-CTC-HLoRA model : [HuggingFace](https://huggingface.co/yuangzheng/HLoRA/tree/main)
 
-model details: k=9, HuBERT base architecture (95M parameters), LoRA and LID (7M parameters), 5 languages.
 
 # Get started
 
@@ -37,7 +36,7 @@ model details: k=9, HuBERT base architecture (95M parameters), LoRA and LID (7M 
 - To obtain a more reliable WER, the original text is preprocessed using `text_normalization/.`, which includes inserting spaces between characters, merging words for code-switching, and adding language-prefix tokens.
 
 - The training code will be made publicly available after the acceptance of this paper.
-  `./espnet`
+  ` `
 
 # Data
 
@@ -56,8 +55,7 @@ For each dataset, we provide `utt_id`.
 
 <b>Table: Overall mASR results on the MLC-SLM 2025 datasets.</b><br>
 MSR-1500h and MLC-500h denote training data subsets selected from MSR-86K and MLC-SLM 2025, respectively.<br>
-“√” and “×” indicate language-known and language-agnostic inference, while “single” and “double” denote single-pass and two-stage inference, respectively.<br>
-For S1–S6, all systems share the same mHuBERT-147 backbone pretrained on 90k hours of multilingual data.
+“√” and “×” indicate language-known and language-agnostic inference, while “single” and “double” denote single-pass and two-stage inference, respectively. For S1–S6, all systems share the same mHuBERT-147 backbone pretrained on 90k hours of multilingual data.
 <br><br>
 
 <table>
@@ -228,4 +226,4 @@ Language-wise results are reported on the MLC-dev / MLC-test in WER (%).
 
 You can cite this paper like:
 
-``
+` `
