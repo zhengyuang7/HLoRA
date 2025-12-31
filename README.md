@@ -1,14 +1,27 @@
 # A Language-Agnostic Hierarchical LoRA-MoE Architecture for CTC-based Multilingual ASR
 
-This repository contains the best mHuBERT-CTC-HLoRA model.
+This repository contains the official implementation of the following publications:
 
-https://huggingface.co/yuangzheng/HLoRA/tree/main
+- A Language-Agnostic Hierarchical LoRA-MoE Architecture for CTC-based Multilingual ASR (available on [arxiv]())
+
+# Checkpoints
+
+We've released checkpoints:
+
+- the best mHuBERT-CTC-HLoRA model: [HuggingFace](https://huggingface.co/yuangzheng/HLoRA/tree/main)
 
 model details: k=9, HuBERT base architecture (95M parameters) and LoRA (7M parameters), 5 languages.
 
 The repository only contains source code. The source code will be made publicly available after the acceptance of this paper.
 
+# Training
+
+# Usage
+
+mHuBERT-CTC-HLoRA is supported in ESPnet toolkit. To run the model,
+
 # Data
+
 For each dataset, we provide `utt_id`.
 
 | Dataset | Language | Path | Hours |
@@ -120,7 +133,6 @@ For S1–S6, all systems share the same mHuBERT-147 backbone pretrained on 90k h
     <td>28.6</td>
   </tr>
 </table>
-
 
 <b>Table: mHuBERT-CTC-HLoRA ablation study with different k.</b><br>
 Language-wise results are reported on the MLC-dev / MLC-test in WER (%).
