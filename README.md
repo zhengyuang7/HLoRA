@@ -30,6 +30,7 @@ model details: k=9, HuBERT base architecture (95M parameters), LoRA and LID (7M 
 
 - The proposed method is implemented using [ESPnet2](https://github.com/espnet/espnet). So please make sure you have [installed ESPnet](https://espnet.github.io/espnet/installation.html).
 
+- To obtain a more reliable WER, the original text is preprocessed using `text_normalization/.`, which includes inserting spaces between characters, merging words for code-switching, and adding language-prefix tokens.
 
 - To experiment, follow the [ESPnet's steps](https://espnet.github.io/espnet/espnet2_tutorial.html). You can implement HLoRA method by simply conducting run.sh from the command line. For example:
   `./run.sh --stage 10 --stop_stage 13`
