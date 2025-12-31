@@ -8,17 +8,17 @@ This repository contains the official implementation of the following publicatio
 
 We've released checkpoints:
 
-- the best mHuBERT-CTC-HLoRA model: [HuggingFace](https://huggingface.co/yuangzheng/HLoRA/tree/main)
+- the mHuBERT-CTC-HLoRA model (with best k): [HuggingFace](https://huggingface.co/yuangzheng/HLoRA/tree/main)
 
-model details: k=9, HuBERT base architecture (95M parameters) and LoRA (7M parameters), 5 languages.
-
-The repository only contains source code. The source code will be made publicly available after the acceptance of this paper.
-
-# Training
+model details: k=9, HuBERT base architecture (95M parameters), LoRA and LID (7M parameters), 5 languages.
 
 # Usage
 
-mHuBERT-CTC-HLoRA is supported in ESPnet toolkit. To run the model,
+Our code is supported in ESPnet toolkit. To run the model, first install the ESPnet toolkit.
+
+- For training, the training code will be made publicly available after the acceptance of this paper. 
+
+- For inference, see `inference/run.sh`
 
 # Data
 
